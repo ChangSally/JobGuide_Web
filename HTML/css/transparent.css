@@ -1,0 +1,7 @@
+@charset "UTF-8";
+
+.textbox{
+    border:1px solid gray;
+    background-color: rgba(24,24,24,0.6);
+    
+}
