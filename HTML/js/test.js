@@ -85,9 +85,13 @@ function workDetails(id, company){
          ,function(data, status){
          var str = JSON.stringify(data);
          var work = JSON.parse(str);
+         var space = "&nbsp&nbsp&nbsp&nbsp";
+         if(work.contact == null){
+           work.contact = "未提供";
+         }
           document.getElementById("content").innerHTML="";
-          var tmp = "職位：" + work.work + "<br>公司：" + company + "<br>工作地點：" + work.location + "<br>工作內容：<br>" + work.workcontent + "<br>薪水：" + work.salary;
-          tmp += "<br>聯絡資訊：<br>" + work.contact + "<br><a href=\"https://www.ptt.cc/bbs/job/" + id + ".html\">See More</a>";
+          var tmp = "<blockquote>職位：<br><blockquote>" + space + work.work + "</blockquote>公司：<br><blockquote>" + space + company + "</blockquote>工作地點：<br><blockquote>" + space + work.location + "</blockquote>工作內容：<br><blockquote>" + space + work.workcontent + "</blockquote>薪水：<br><blockquote>" + space + work.salary;
+          tmp += "</blockquote>聯絡資訊：<br><blockquote>" + space + work.contact + "</blockquote></blockquote><center><a href=\"https://www.ptt.cc/bbs/job/" + id + ".html\">See More</a></center>";
           document.getElementById("content").innerHTML = tmp;
      },"json");
 }
